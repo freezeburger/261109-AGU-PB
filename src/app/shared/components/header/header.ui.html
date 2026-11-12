@@ -1,0 +1,23 @@
+<header class="header">
+  @if (showMenuToggle()) {
+    <button type="button" class="menu-toggle" aria-label="Ouvrir le menu" (click)="menuToggle.emit()">
+      ☰
+    </button>
+  }
+
+  <img
+    class="logo"
+    src="https://be.brussels/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo-brussels-fr.ffd04965.svg&w=384&q=75"
+    alt="be.brussels"
+  />
+
+  <h1>{{ appTitle() }}</h1>
+
+  @if (userName()) {
+    <div class="user">
+      <span class="avatar" aria-hidden="true">{{ userName()!.charAt(0) }}</span>
+      <span class="user-name">{{ userName() }}</span>
+      <button type="button" class="logout" (click)="logout.emit()">Déconnexion</button>
+    </div>
+  }
+</header>

@@ -1,0 +1,79 @@
+:host {
+  display: block;
+}
+
+.notification {
+  --notif-color: var(--info-color);
+  --notif-soft: var(--info-soft);
+
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--notif-color) 35%, transparent);
+  border-left: 4px solid var(--notif-color);
+  border-radius: var(--radius-sm);
+  background: var(--notif-soft);
+  color: var(--text-strong-color);
+  animation: slide-in 0.25s ease;
+}
+
+.success {
+  --notif-color: var(--success-color);
+  --notif-soft: var(--success-soft);
+}
+
+.warning {
+  --notif-color: var(--warning-color);
+  --notif-soft: var(--warning-soft);
+}
+
+.error {
+  --notif-color: var(--error-color);
+  --notif-soft: var(--error-soft);
+}
+
+.icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--notif-color);
+  color: var(--text-on-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  display: block;
+}
+
+.message:empty {
+  display: none;
+}
+
+.close {
+  border: none;
+  background: none;
+  color: var(--text-color);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--text-strong-color);
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}

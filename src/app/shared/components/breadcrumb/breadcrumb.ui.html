@@ -1,0 +1,13 @@
+<nav aria-label="Fil d'Ariane">
+  <ol>
+    @for (item of items(); track $index; let last = $last) {
+      <li>
+        @if (item.link && !last) {
+          <a [routerLink]="item.link">{{ item.label }}</a>
+        } @else {
+          <span [attr.aria-current]="last ? 'page' : null">{{ item.label }}</span>
+        }
+      </li>
+    }
+  </ol>
+</nav>

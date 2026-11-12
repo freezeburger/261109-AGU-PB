@@ -1,0 +1,14 @@
+<a
+  class="menu-item"
+  [routerLink]="link()"
+  routerLinkActive="active"
+  ariaCurrentWhenActive="page"
+>
+  @if (icon()) {
+    <span class="icon" aria-hidden="true">{{ icon() }}</span>
+  }
+  <span class="label">{{ label() }}</span>
+  @if (badge()) {
+    <app-badge [value]="badge()!" level="accent" />
+  }
+</a>

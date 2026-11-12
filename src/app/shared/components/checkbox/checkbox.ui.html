@@ -1,0 +1,5 @@
+<label class="checkbox" [class.disabled]="disabled()">
+  <input type="checkbox" [checked]="checked()" [disabled]="disabled()" (change)="toggle($event)" />
+  <span class="box" aria-hidden="true"></span>
+  <span>{{ label() }}<ng-content /></span>
+</label>

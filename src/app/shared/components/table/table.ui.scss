@@ -1,0 +1,88 @@
+app-table {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-sm);
+}
+
+app-table .table-scroll {
+  overflow-x: auto;
+}
+
+app-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+app-table th,
+app-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+  vertical-align: middle;
+}
+
+app-table thead th {
+  background: var(--primary-soft);
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+app-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+app-table th.sortable:hover {
+  background: var(--primary-soft-hover);
+}
+
+app-table th[aria-sort='ascending']::after {
+  content: ' ▲';
+}
+
+app-table th[aria-sort='descending']::after {
+  content: ' ▼';
+}
+
+app-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+app-table.striped tbody tr:nth-child(even) {
+  background: var(--surface-ground);
+}
+
+app-table tbody tr {
+  transition: background var(--transition);
+}
+
+app-table tbody tr:hover {
+  background: var(--surface-hover);
+}
+
+app-table tr.clickable {
+  cursor: pointer;
+}
+
+app-table .align-right {
+  text-align: right;
+}
+
+app-table .truncate {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+app-table[aria-busy='true'] tbody {
+  opacity: 0.5;
+}

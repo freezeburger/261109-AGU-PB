@@ -1,0 +1,16 @@
+@if (visible()) {
+  <div class="notification" [class]="level()" [attr.role]="role()" tabindex="-1">
+    <span class="icon" aria-hidden="true">{{ icon() }}</span>
+
+    <div class="content">
+      @if (header()) {
+        <strong class="title">{{ header() }}</strong>
+      }
+      <div class="message"><ng-content /></div>
+    </div>
+
+    @if (closable()) {
+      <button type="button" class="close" aria-label="Fermer" (click)="close()">×</button>
+    }
+  </div>
+}

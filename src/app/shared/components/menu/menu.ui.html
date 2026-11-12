@@ -1,0 +1,6 @@
+<nav class="menu" [attr.aria-label]="header() || 'Menu principal'">
+  @if (header()) {
+    <p class="menu-title">{{ header() }}</p>
+  }
+  <ng-content />
+</nav>

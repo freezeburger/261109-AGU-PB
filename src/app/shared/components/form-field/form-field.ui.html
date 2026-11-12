@@ -1,0 +1,24 @@
+@if (label()) {
+  <label class="ff-label" [attr.for]="forId()">
+    {{ label() }}
+    @if (required()) {
+      <span class="ff-required" aria-hidden="true">*</span>
+    }
+  </label>
+}
+
+<div class="ff-control">
+  <ng-content />
+</div>
+
+<div class="ff-footer">
+  @if (error()) {
+    <small class="ff-error" role="alert">{{ error() }}</small>
+  } @else if (hint()) {
+    <small class="ff-hint">{{ hint() }}</small>
+  }
+
+  @if (showCounter()) {
+    <small class="ff-counter">{{ length() }} / {{ maxLength() }}</small>
+  }
+</div>

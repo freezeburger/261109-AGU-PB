@@ -1,1 +1,116 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');
+
+:root {
+  /* Couleurs de marque (identité be.brussels) */
+  --primary-color: #0a00be;
+  --accent-color: #fff203;
+  --secondary-color: #949499;
+
+  /* Couleurs sémantiques */
+  --error-color: #e16670;
+  --success-color: #5f9569;
+  --warning-color: #e5a50a;
+  --info-color: #2f7bf5;
+
+  --font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+
+  /* Textes */
+  --text-color: var(--secondary-color);
+  --text-strong-color: #1c1b3a;
+  --text-on-primary: #ffffff;
+
+  /* Teintes dérivées (color-mix évite de dupliquer les codes couleur) */
+  --primary-soft: color-mix(in srgb, var(--primary-color) 10%, white);
+  --primary-hover: color-mix(in srgb, var(--primary-color) 85%, black);
+  --error-soft: color-mix(in srgb, var(--error-color) 14%, white);
+  --success-soft: color-mix(in srgb, var(--success-color) 14%, white);
+  --warning-soft: color-mix(in srgb, var(--warning-color) 16%, white);
+  --info-soft: color-mix(in srgb, var(--info-color) 12%, white);
+  --primary-soft-hover: color-mix(in srgb, var(--primary-color) 16%, white);
+  --error-text: color-mix(in srgb, var(--error-color) 80%, black);
+  --warning-text: color-mix(in srgb, var(--warning-color) 70%, black);
+
+  /* Surfaces */
+  --surface-ground: #f4f5fb;
+  --surface-card: #ffffff;
+  --surface-hover: #eef0fa;
+  --border-color: #dfe1ec;
+  --overlay-color: rgb(16 14 60 / 45%);
+
+  /* Formes */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgb(16 14 60 / 8%);
+  --shadow: 0 4px 14px rgb(16 14 60 / 10%);
+  --shadow-lg: 0 16px 40px rgb(16 14 60 / 22%);
+
+  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--primary-color) 30%, transparent);
+
+  /* Espacements */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+
+  --transition: 0.18s ease;
+  --header-height: 64px;
+  --sidebar-width: 240px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--text-strong-color);
+  background: var(--surface-ground);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Utilitaires simples utilisés par les exemples */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.muted {
+  color: var(--text-color);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

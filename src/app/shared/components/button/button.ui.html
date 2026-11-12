@@ -1,0 +1,14 @@
+<button
+  [class]="cssClasses()"
+  [disabled]="isDisabled()"
+  [type]="type()"
+  [attr.aria-busy]="loading()"
+  [attr.aria-label]="ariaLabel()"
+  (click)="handleMouseup(); action.emit('click')"
+  (dblclick)="handleMouseup(); action.emit('doubleclick')"
+>
+  @if (loading()) {
+    <span class="spinner" aria-hidden="true"></span>
+  }
+  <ng-content />
+</button>

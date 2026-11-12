@@ -1,0 +1,25 @@
+@if (open()) {
+  <div class="backdrop" (click)="close()"></div>
+
+  <aside
+    class="drawer"
+    [class]="position()"
+    [style.width]="width()"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="header()"
+  >
+    <header>
+      <h2>{{ header() }}</h2>
+      <button type="button" class="close" aria-label="Fermer" (click)="close()">×</button>
+    </header>
+
+    <div class="body">
+      <ng-content />
+    </div>
+
+    <footer>
+      <ng-content select="[drawer-footer]" />
+    </footer>
+  </aside>
+}

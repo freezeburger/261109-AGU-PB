@@ -1,0 +1,46 @@
+:host {
+  display: inline-flex;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.primary {
+  background: var(--primary-color);
+  color: var(--text-on-primary);
+}
+
+.accent {
+  background: var(--accent-color);
+  color: var(--primary-color);
+}
+
+.success {
+  background: var(--success-color);
+  color: var(--text-on-primary);
+}
+
+.warning {
+  background: var(--warning-color);
+  color: var(--text-strong-color);
+}
+
+.error {
+  background: var(--error-color);
+  color: var(--text-on-primary);
+}
+
+.info {
+  background: var(--info-color);
+  color: var(--text-on-primary);
+}

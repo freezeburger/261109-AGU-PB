@@ -1,0 +1,8 @@
+<div class="empty-state" [class.error]="level() === 'error'" [attr.role]="level() === 'error' ? 'alert' : null">
+  <span class="icon" aria-hidden="true">{{ icon() }}</span>
+  <h3>{{ header() }}</h3>
+  @if (message()) {
+    <p>{{ message() }}</p>
+  }
+  <div class="actions"><ng-content /></div>
+</div>

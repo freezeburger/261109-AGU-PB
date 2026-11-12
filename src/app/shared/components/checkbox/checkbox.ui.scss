@@ -1,0 +1,55 @@
+:host {
+  display: inline-flex;
+}
+
+.checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* La vraie case reste dans le DOM (clavier, lecteurs d'écran) mais invisible */
+input {
+  position: absolute;
+  opacity: 0;
+}
+
+.box {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--surface-card);
+  transition: all var(--transition);
+}
+
+.checkbox:hover .box {
+  border-color: var(--primary-color);
+}
+
+input:checked + .box {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+}
+
+input:checked + .box::after {
+  content: '✓';
+  color: var(--text-on-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+input:focus-visible + .box {
+  box-shadow: var(--focus-ring);
+}

@@ -1,0 +1,33 @@
+<app-header
+  [appTitle]="appTitle()"
+  [userName]="userName()"
+  [showMenuToggle]="true"
+  (menuToggle)="toggleSidebar()"
+  (logout)="logout.emit()"
+/>
+
+<div class="layout-body">
+  <aside class="sidebar" [class.open]="sidebarOpen()">
+    <app-menu [header]="menuTitle()">
+      @for (entry of menu(); track entry.link) {
+        <app-menu-item
+          [label]="entry.label"
+          [link]="entry.link"
+          [icon]="entry.icon"
+          [badge]="entry.badge"
+          (click)="closeSidebar()"
+        />
+      }
+    </app-menu>
+
+    <p class="sidebar-footer">{{ footerText() }}</p>
+  </aside>
+
+  @if (sidebarOpen()) {
+    <div class="backdrop" (click)="closeSidebar()"></div>
+  }
+
+  <main class="content">
+    <ng-content />
+  </main>
+</div>

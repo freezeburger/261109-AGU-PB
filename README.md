@@ -12,6 +12,20 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Composants UI partagés
+
+Les composants réutilisables (sans dépendance externe) se trouvent dans
+`src/app/shared/components/` : `button`, `card`, `badge`, `tag`, `notification`, `form-field`,
+`checkbox`, `breadcrumb`, `table`, `paginator`, `skeleton`, `empty-state`, `dialog`, `drawer`,
+`toast` (+ `ToastService`), `header`, `menu`, `menu-item` et `main-layout`.
+
+- Les couleurs, rayons, ombres et espacements sont des variables CSS déclarées dans `src/styles.scss`.
+- Chaque fichier `*.ui.ts` contient un exemple d'utilisation en commentaire.
+- Des écrans complets à copier-coller (un par maquette de `workflow/maquette`) sont dans
+  `src/app/pages/examples/` et accessibles via le menu : `/examples/login`, `/examples/products`,
+  `/examples/products/1`, `/examples/products/1/edit`, `/examples/notifications`,
+  `/examples/components`.
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:

@@ -1,0 +1,23 @@
+<div class="toast-zone" aria-live="polite">
+  @for (toast of toastService.toasts(); track toast.id) {
+    <div class="toast" [class]="toast.level" role="status">
+      <span class="icon" aria-hidden="true">{{ icons[toast.level] }}</span>
+      <span class="message">{{ toast.message }}</span>
+
+      @if (toast.actionLabel) {
+        <button type="button" class="action" (click)="runAction(toast)">
+          {{ toast.actionLabel }}
+        </button>
+      }
+
+      <button
+        type="button"
+        class="close"
+        aria-label="Fermer"
+        (click)="toastService.dismiss(toast.id)"
+      >
+        ×
+      </button>
+    </div>
+  }
+</div>

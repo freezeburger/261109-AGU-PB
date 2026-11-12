@@ -1,0 +1,131 @@
+:host {
+  display: inline-flex;
+}
+
+:host(.full-width),
+:host(.full-width) button {
+  width: 100%;
+}
+
+button {
+  /* Chaque niveau ne change que ces deux variables */
+  --btn-color: var(--primary-color);
+  --btn-contrast: var(--text-on-primary);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--btn-color);
+  border-radius: var(--radius-sm);
+  background: var(--btn-color);
+  color: var(--btn-contrast);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    filter var(--transition);
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(0.92);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Niveaux */
+.secondary {
+  --btn-color: var(--secondary-color);
+}
+
+.accent {
+  --btn-color: var(--accent-color);
+  --btn-contrast: var(--primary-color);
+}
+
+.success {
+  --btn-color: var(--success-color);
+}
+
+.warning {
+  --btn-color: var(--warning-color);
+  --btn-contrast: var(--text-strong-color);
+}
+
+.error {
+  --btn-color: var(--error-color);
+}
+
+/* Variantes */
+.outlined,
+.text {
+  background: transparent;
+  color: var(--btn-color);
+}
+
+.text {
+  border-color: transparent;
+}
+
+.outlined:hover:not(:disabled),
+.text:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--btn-color) 10%, transparent);
+  filter: none;
+}
+
+.accent.outlined,
+.accent.text {
+  color: var(--primary-color);
+}
+
+/* Tailles */
+.small {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.85rem;
+}
+
+.large {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.05rem;
+}
+
+.spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+:host(.pulse) button {
+  animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.6;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,44 @@
+:host {
+  display: inline-flex;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0.15rem var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.rounded {
+  border-radius: var(--radius-pill);
+}
+
+.neutral {
+  background: var(--surface-hover);
+  color: var(--text-strong-color);
+}
+
+.info {
+  background: var(--info-soft);
+  color: var(--info-color);
+}
+
+.success {
+  background: var(--success-soft);
+  color: var(--success-color);
+}
+
+.warning {
+  background: var(--warning-soft);
+  color: var(--warning-text);
+}
+
+.error {
+  background: var(--error-soft);
+  color: var(--error-text);
+}

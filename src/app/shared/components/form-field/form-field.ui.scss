@@ -1,0 +1,92 @@
+app-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+app-form-field .ff-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+app-form-field .ff-required {
+  margin-left: 2px;
+  color: var(--error-color);
+}
+
+app-form-field .ff-control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+app-form-field input:not([type='checkbox'], [type='radio']),
+app-form-field select,
+app-form-field textarea {
+  flex: 1;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--surface-card);
+  color: var(--text-strong-color);
+  font: inherit;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+app-form-field textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+app-form-field :is(input, select, textarea):hover {
+  border-color: var(--primary-color);
+}
+
+app-form-field :is(input, select, textarea):focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+app-form-field :is(input, select, textarea):disabled,
+app-form-field :is(input, textarea)[readonly] {
+  background: var(--surface-ground);
+  color: var(--text-color);
+  cursor: not-allowed;
+}
+
+app-form-field.has-error :is(input, select, textarea) {
+  border-color: var(--error-color);
+}
+
+app-form-field.has-error :is(input, select, textarea):focus {
+  box-shadow: 0 0 0 3px var(--error-soft);
+}
+
+app-form-field .ff-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-height: 1.1rem;
+  font-size: 0.8rem;
+}
+
+app-form-field .ff-footer:empty {
+  display: none;
+}
+
+app-form-field .ff-hint,
+app-form-field .ff-counter {
+  color: var(--text-color);
+}
+
+app-form-field .ff-counter {
+  margin-left: auto;
+}
+
+app-form-field .ff-error {
+  color: var(--error-text);
+}

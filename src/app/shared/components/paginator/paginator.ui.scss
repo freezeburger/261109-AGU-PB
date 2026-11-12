@@ -1,0 +1,56 @@
+:host {
+  display: block;
+}
+
+.paginator {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.summary {
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+button {
+  min-width: 2.2rem;
+  height: 2.2rem;
+  padding: 0 var(--space-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-strong-color);
+  font: inherit;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+button:hover:not(:disabled) {
+  background: var(--surface-hover);
+}
+
+button:disabled {
+  color: var(--text-color);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.page.active {
+  background: var(--primary-color);
+  color: var(--text-on-primary);
+  font-weight: 700;
+}
+
+.ellipsis {
+  padding: 0 var(--space-1);
+  color: var(--text-color);
+}
