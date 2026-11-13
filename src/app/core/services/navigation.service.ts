@@ -6,7 +6,7 @@ export class NavigationService {
   private authentication = inject(AuthService);
   private router = inject(Router);
   loginRedirection = effect(() => {
-      if (this.authentication.credentials()) {
+      if (this.authentication.token()) {
         setTimeout(() => {
           this.router.navigate(['/home']);
         }, 3000);

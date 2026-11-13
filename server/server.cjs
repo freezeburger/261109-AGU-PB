@@ -5,16 +5,23 @@
  *   npm run api:reset    # restaure les données de référence puis démarre
  *
  * - `db.seed.json` (versionné) est copié vers `db.json` (ignoré par Git) au premier démarrage.
- * - Authentification par jeton opaque : POST /auth/login, GET /auth/me, POST /auth/logout.
+ * - Authentification par jeton opaque : POST /auth/login, GET /auth/verify, GET /auth/me, POST /auth/logout.
  * - Toute autre route exige `Authorization: Bearer <jeton>` ; `/users` et `/db` ne sont pas exposés.
  * - Les notifications sont cloisonnées par utilisateur (`userId` imposé par le serveur).
+ * - CORS limité aux origines de `CORS_ORIGINS` (par défaut : http://localhost:4200, http://127.0.0.1:4200).
  */
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
+const cors = require('cors');
 const jsonServer = require('json-server');
 
 const PORT = Number(process.env.API_PORT ?? 5050);
+/** Origines autorisées, séparées par des virgules (ex. `CORS_ORIGINS=http://localhost:4200,http://127.0.0.1:4200`). */
+const CORS_ORIGINS = (process.env.CORS_ORIGINS ?? 'http://localhost:4200,http://127.0.0.1:4200')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 const SESSION_TTL_MS = 8 * 60 * 60 * 1000;
 const SEED_FILE = path.join(__dirname, 'db.seed.json');
 const DB_FILE = path.join(__dirname, 'db.json');
@@ -57,7 +64,17 @@ function activeSession(token) {
   return session;
 }
 
-// Logger, no-cache et body-parser ; pas de CORS : le navigateur passe par le proxy d'Angular.
+// CORS avant le contrôle d'accès, pour que les requêtes préliminaires OPTIONS ne reçoivent pas 401.
+server.use(
+  cors({
+    origin: CORS_ORIGINS,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Authorization', 'Content-Type'],
+    maxAge: 600,
+  }),
+);
+
+// Logger, no-cache et body-parser (le CORS par défaut de json-server est désactivé au profit du précédent).
 server.use(jsonServer.defaults({ noCors: true, static: path.join(__dirname, 'public') }));
 server.use(jsonServer.bodyParser);
 
@@ -97,6 +114,11 @@ server.use((req, res, next) => {
 server.get('/auth/me', (req, res) => {
   const user = db.get('users').find({ id: req.userId }).value();
   return user ? res.json(publicUser(user)) : res.sendStatus(401);
+});
+
+server.get('/auth/verify', (req, res) => {
+  const user = db.get('users').find({ id: req.userId }).value();
+  return user ? res.json({ valid: true, name: user }) : res.sendStatus(401);
 });
 
 server.post('/auth/logout', (req, res) => {
