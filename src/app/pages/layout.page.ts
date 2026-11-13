@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
+import { AuthService } from '../core/services/auth.service';
+
 import { APP_MENU } from '../config/app.menu';
 import { MainLayoutUi } from '../shared/components/main-layout/main-layout.ui';
 
@@ -14,11 +16,11 @@ import { MainLayoutUi } from '../shared/components/main-layout/main-layout.ui';
   `,
 })
 export class LayoutPage {
-  private router = inject(Router);
+  private auth = inject(AuthService);
 
   protected menu = APP_MENU;
 
   protected logout() {
-    this.router.navigateByUrl('/examples/login');
+    this.auth.logout();
   }
 }
