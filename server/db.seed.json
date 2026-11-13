@@ -1,0 +1,158 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Marie Laurent",
+      "email": "marie.laurent@atelier.dev",
+      "password": "scrypt$abe37bc5b64da951f9bc51af19c619df$ce583ccbefcb5660f93f7d83fa91748fc66028e8e304759d2ecfd39a597847c471d987ae26dbd8e69f9fb46d79c3664b431190c68c5486caa2f176fc5e113108"
+    },
+    {
+      "id": 2,
+      "name": "Paul Martin",
+      "email": "paul.martin@atelier.dev",
+      "password": "scrypt$dd4fa1b6d2b354c7fa414e8b51ed9cc0$acc45f2f3ec0fab59535990929d2df9d34b9a52b4d0807d68004bb47216cd72f6d2ab30302456ba08a707377dc1507525006887e84299e8eb1072e5ad189ee2f"
+    }
+  ],
+  "sounds": [
+    {
+      "id": 1,
+      "title": "SoundHelix Song 1",
+      "artist": "SoundHelix",
+      "description": "Morceau instrumental de démonstration généré par SoundHelix.",
+      "price": 0.99,
+      "thumbnail": "https://picsum.photos/seed/soundbox-1/300",
+      "mp3Preview": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    },
+    {
+      "id": 2,
+      "title": "SoundHelix Song 2",
+      "artist": "SoundHelix",
+      "description": "Morceau instrumental de démonstration généré par SoundHelix.",
+      "price": 0.99,
+      "thumbnail": "https://picsum.photos/seed/soundbox-2/300",
+      "mp3Preview": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    },
+    {
+      "id": 3,
+      "title": "SoundHelix Song 3",
+      "artist": "SoundHelix",
+      "description": "Morceau instrumental de démonstration généré par SoundHelix.",
+      "price": 0.99,
+      "thumbnail": "https://picsum.photos/seed/soundbox-3/300",
+      "mp3Preview": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+    },
+    {
+      "id": 4,
+      "title": "SoundHelix Song 4",
+      "artist": "SoundHelix",
+      "description": "Morceau instrumental de démonstration généré par SoundHelix.",
+      "price": 0.99,
+      "thumbnail": "https://picsum.photos/seed/soundbox-4/300",
+      "mp3Preview": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+    },
+    {
+      "id": 5,
+      "title": "SoundHelix Song 5",
+      "artist": "SoundHelix",
+      "description": "Morceau instrumental de démonstration généré par SoundHelix.",
+      "price": 0.99,
+      "thumbnail": "https://picsum.photos/seed/soundbox-5/300",
+      "mp3Preview": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
+    },
+    {
+      "id": 6,
+      "title": "SoundHelix Song 6",
+      "artist": "SoundHelix",
+      "description": "Morceau instrumental de démonstration généré par SoundHelix.",
+      "price": 0.99,
+      "thumbnail": "https://picsum.photos/seed/soundbox-6/300",
+      "mp3Preview": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
+    },
+    {
+      "id": 7,
+      "title": "SoundHelix Song 7",
+      "artist": "SoundHelix",
+      "description": "Morceau instrumental de démonstration généré par SoundHelix.",
+      "price": 0.99,
+      "thumbnail": "https://picsum.photos/seed/soundbox-7/300",
+      "mp3Preview": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
+    },
+    {
+      "id": 8,
+      "title": "SoundHelix Song 8",
+      "artist": "SoundHelix",
+      "description": "Morceau instrumental de démonstration généré par SoundHelix.",
+      "price": 0.99,
+      "thumbnail": "https://picsum.photos/seed/soundbox-8/300",
+      "mp3Preview": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+    },
+    {
+      "id": 9,
+      "title": "SoundHelix Song 9",
+      "artist": "SoundHelix",
+      "description": "Morceau instrumental de démonstration généré par SoundHelix.",
+      "price": 0.99,
+      "thumbnail": "https://picsum.photos/seed/soundbox-9/300",
+      "mp3Preview": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3"
+    },
+    {
+      "id": 10,
+      "title": "SoundHelix Song 10",
+      "artist": "SoundHelix",
+      "description": "Morceau instrumental de démonstration généré par SoundHelix.",
+      "price": 0.99,
+      "thumbnail": "https://picsum.photos/seed/soundbox-10/300",
+      "mp3Preview": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "level": "error",
+      "title": "Échec de l'enregistrement",
+      "message": "Le produit « Apple AirPods Max Silver » n'a pas pu être enregistré.",
+      "createdAt": "2026-11-12T07:42:00.000Z",
+      "readAt": null
+    },
+    {
+      "id": 2,
+      "level": "warning",
+      "title": "Aperçu audio inaccessible",
+      "message": "L'aperçu de « SoundHelix Song 2 » n'a pas pu être chargé.",
+      "createdAt": "2026-11-12T07:15:00.000Z",
+      "readAt": null
+    },
+    {
+      "id": 3,
+      "level": "success",
+      "title": "Produit enregistré",
+      "message": "« Beats Flex Wireless Earphones » a été mis à jour.",
+      "createdAt": "2026-11-12T07:03:00.000Z",
+      "readAt": null
+    },
+    {
+      "id": 4,
+      "level": "info",
+      "title": "Nouveau son disponible",
+      "message": "« SoundHelix Song 10 » a été ajouté au catalogue.",
+      "createdAt": "2026-11-11T16:30:00.000Z",
+      "readAt": "2026-11-11T17:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "level": "success",
+      "title": "Son ajouté",
+      "message": "« SoundHelix Song 9 » est disponible dans le catalogue.",
+      "createdAt": "2026-11-10T09:00:00.000Z",
+      "readAt": "2026-11-10T09:30:00.000Z"
+    },
+    {
+      "id": 6,
+      "level": "info",
+      "title": "Catalogue mis à jour",
+      "message": "L'enceinte « Apple HomePod Mini Cosmic Grey » est disponible dans le catalogue.",
+      "createdAt": "2026-11-09T14:00:00.000Z",
+      "readAt": "2026-11-10T08:00:00.000Z"
+    }
+  ]
+}
