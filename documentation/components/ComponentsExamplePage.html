@@ -1,0 +1,1073 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>paragdigm-soundbox documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">paragdigm-soundbox documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+    <button type="button"
+        class="search-input-clear"
+        aria-label="Clear search"
+        data-search-input-clear>&times;</button>
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ComponentsExamplePage</li>
+</ol>
+
+<div class="io-file io-file-path" data-compodoc="entity-file-path">
+    <span class="icon ion-ios-document" aria-hidden="true"></span>
+    <code>src/app/pages/examples/components-example.page.ts</code>
+</div>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#api" class="nav-link"
+                role="tab" id="api-tab" data-bs-toggle="tab" data-link="api">API</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>EXEMPLE — Vitrine de tous les composants partagés.</p>
+
+    </p>
+
+
+
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+    </div>
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-components-example</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                        <div>        <code><a href="https://angular.dev/api/forms/FormsModule" target="_blank" >FormsModule</a></code>
+</div>
+                        <div>        <code><a href="../components/BadgeUi.html" target="_self" >BadgeUi</a></code>
+</div>
+                        <div>        <code><a href="../components/ButtonUi.html" target="_self" >ButtonUi</a></code>
+</div>
+                        <div>        <code><a href="../components/CardUi.html" target="_self" >CardUi</a></code>
+</div>
+                        <div>        <code><a href="../components/CheckboxUi.html" target="_self" >CheckboxUi</a></code>
+</div>
+                        <div>        <code><a href="../components/DialogUi.html" target="_self" >DialogUi</a></code>
+</div>
+                        <div>        <code><a href="../components/DrawerUi.html" target="_self" >DrawerUi</a></code>
+</div>
+                        <div>        <code><a href="../components/EmptyStateUi.html" target="_self" >EmptyStateUi</a></code>
+</div>
+                        <div>        <code><a href="../components/FormFieldUi.html" target="_self" >FormFieldUi</a></code>
+</div>
+                        <div>        <code><a href="../components/NotificationUi.html" target="_self" >NotificationUi</a></code>
+</div>
+                        <div>        <code><a href="../components/PaginatorUi.html" target="_self" >PaginatorUi</a></code>
+</div>
+                        <div>        <code><a href="../components/SkeletonUi.html" target="_self" >SkeletonUi</a></code>
+</div>
+                        <div>        <code><a href="../components/TagUi.html" target="_self" >TagUi</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">styles</td>
+                <td class="col-md-9"><code>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--space-4);
+    }
+  </code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;stack&quot;&gt;
+  &lt;h1&gt;Vitrine des composants&lt;/h1&gt;
+
+  &lt;div class&#x3D;&quot;grid&quot;&gt;
+    &lt;app-card header&#x3D;&quot;Boutons&quot; subtitle&#x3D;&quot;level · variant · size · loading&quot;&gt;
+      &lt;div class&#x3D;&quot;stack&quot;&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;app-button&gt;Primary&lt;/app-button&gt;
+          &lt;app-button level&#x3D;&quot;accent&quot;&gt;Accent&lt;/app-button&gt;
+          &lt;app-button level&#x3D;&quot;secondary&quot;&gt;Secondary&lt;/app-button&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;app-button level&#x3D;&quot;success&quot;&gt;Success&lt;/app-button&gt;
+          &lt;app-button level&#x3D;&quot;warning&quot;&gt;Warning&lt;/app-button&gt;
+          &lt;app-button level&#x3D;&quot;error&quot;&gt;Error&lt;/app-button&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;app-button variant&#x3D;&quot;outlined&quot;&gt;Outlined&lt;/app-button&gt;
+          &lt;app-button variant&#x3D;&quot;text&quot;&gt;Text&lt;/app-button&gt;
+          &lt;app-button [loading]&#x3D;&quot;true&quot;&gt;Loading&lt;/app-button&gt;
+          &lt;app-button [disabled]&#x3D;&quot;true&quot;&gt;Disabled&lt;/app-button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/app-card&gt;
+
+    &lt;app-card header&#x3D;&quot;Badges &amp; tags&quot;&gt;
+      &lt;div class&#x3D;&quot;stack&quot;&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;app-badge [value]&#x3D;&quot;3&quot; /&gt;
+          &lt;app-badge [value]&#x3D;&quot;12&quot; level&#x3D;&quot;primary&quot; /&gt;
+          &lt;app-badge value&#x3D;&quot;new&quot; level&#x3D;&quot;success&quot; /&gt;
+          &lt;app-badge [value]&#x3D;&quot;99&quot; level&#x3D;&quot;error&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;app-tag level&#x3D;&quot;info&quot;&gt;Info&lt;/app-tag&gt;
+          &lt;app-tag level&#x3D;&quot;success&quot;&gt;Succès&lt;/app-tag&gt;
+          &lt;app-tag level&#x3D;&quot;warning&quot;&gt;Avert.&lt;/app-tag&gt;
+          &lt;app-tag level&#x3D;&quot;error&quot;&gt;Erreur&lt;/app-tag&gt;
+          &lt;app-tag [rounded]&#x3D;&quot;true&quot;&gt;Neutre&lt;/app-tag&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/app-card&gt;
+
+    &lt;app-card header&#x3D;&quot;Formulaire&quot;&gt;
+      &lt;app-form-field label&#x3D;&quot;Nom&quot; forId&#x3D;&quot;name&quot; hint&#x3D;&quot;Votre nom complet.&quot; [required]&#x3D;&quot;true&quot; [length]&#x3D;&quot;name().length&quot; [maxLength]&#x3D;&quot;40&quot;&gt;
+        &lt;input id&#x3D;&quot;name&quot; maxlength&#x3D;&quot;40&quot; [(ngModel)]&#x3D;&quot;name&quot; /&gt;
+      &lt;/app-form-field&gt;
+      &lt;app-form-field label&#x3D;&quot;E-mail&quot; forId&#x3D;&quot;mail&quot; error&#x3D;&quot;Format d&#x27;adresse e-mail invalide.&quot;&gt;
+        &lt;input id&#x3D;&quot;mail&quot; value&#x3D;&quot;marie.laurent@exemple&quot; /&gt;
+      &lt;/app-form-field&gt;
+      &lt;app-form-field label&#x3D;&quot;Pays&quot; forId&#x3D;&quot;country&quot;&gt;
+        &lt;select id&#x3D;&quot;country&quot;&gt;
+          &lt;option&gt;Belgique&lt;/option&gt;
+          &lt;option&gt;France&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/app-form-field&gt;
+      &lt;app-checkbox label&#x3D;&quot;J&#x27;accepte les conditions&quot; [(checked)]&#x3D;&quot;accepted&quot; /&gt;
+    &lt;/app-card&gt;
+
+    &lt;app-card header&#x3D;&quot;Bannières&quot;&gt;
+      &lt;div class&#x3D;&quot;stack&quot;&gt;
+        &lt;app-notification level&#x3D;&quot;info&quot; header&#x3D;&quot;Information&quot;&gt;Message neutre.&lt;/app-notification&gt;
+        &lt;app-notification level&#x3D;&quot;success&quot; header&#x3D;&quot;Produit enregistré&quot; /&gt;
+        &lt;app-notification level&#x3D;&quot;warning&quot; header&#x3D;&quot;Miniature inaccessible&quot; /&gt;
+        &lt;app-notification level&#x3D;&quot;error&quot; header&#x3D;&quot;Erreur&quot; [closable]&#x3D;&quot;true&quot;&gt;Fermable.&lt;/app-notification&gt;
+      &lt;/div&gt;
+    &lt;/app-card&gt;
+
+    &lt;app-card header&#x3D;&quot;Superpositions&quot; subtitle&#x3D;&quot;dialog · drawer · toast&quot;&gt;
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;app-button (action)&#x3D;&quot;dialogOpen.set(true)&quot;&gt;Ouvrir le dialog&lt;/app-button&gt;
+        &lt;app-button level&#x3D;&quot;accent&quot; (action)&#x3D;&quot;drawerOpen.set(true)&quot;&gt;Ouvrir le drawer&lt;/app-button&gt;
+        &lt;app-button variant&#x3D;&quot;outlined&quot; (action)&#x3D;&quot;showToast()&quot;&gt;Afficher un toast&lt;/app-button&gt;
+      &lt;/div&gt;
+    &lt;/app-card&gt;
+
+    &lt;app-card header&#x3D;&quot;Chargement &amp; pagination&quot;&gt;
+      &lt;div class&#x3D;&quot;stack&quot;&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;app-skeleton width&#x3D;&quot;40px&quot; height&#x3D;&quot;40px&quot; shape&#x3D;&quot;circle&quot; /&gt;
+          &lt;div class&#x3D;&quot;stack&quot; style&#x3D;&quot;flex: 1; gap: 6px&quot;&gt;
+            &lt;app-skeleton width&#x3D;&quot;70%&quot; /&gt;
+            &lt;app-skeleton width&#x3D;&quot;40%&quot; /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;app-paginator [(page)]&#x3D;&quot;page&quot; [total]&#x3D;&quot;128&quot; [pageSize]&#x3D;&quot;20&quot; /&gt;
+      &lt;/div&gt;
+    &lt;/app-card&gt;
+  &lt;/div&gt;
+
+  &lt;app-empty-state icon&#x3D;&quot;📭&quot; header&#x3D;&quot;État vide&quot; message&#x3D;&quot;Aucune donnée à afficher pour le moment.&quot;&gt;
+    &lt;app-button variant&#x3D;&quot;outlined&quot;&gt;Action&lt;/app-button&gt;
+  &lt;/app-empty-state&gt;
+&lt;/div&gt;
+
+&lt;app-dialog [(open)]&#x3D;&quot;dialogOpen&quot; header&#x3D;&quot;Confirmer l&#x27;action&quot;&gt;
+  &lt;p&gt;Voulez-vous vraiment continuer ?&lt;/p&gt;
+  &lt;div dialog-actions&gt;
+    &lt;app-button variant&#x3D;&quot;outlined&quot; (action)&#x3D;&quot;dialogOpen.set(false)&quot;&gt;Annuler&lt;/app-button&gt;
+    &lt;app-button (action)&#x3D;&quot;dialogOpen.set(false)&quot;&gt;Confirmer&lt;/app-button&gt;
+  &lt;/div&gt;
+&lt;/app-dialog&gt;
+
+&lt;app-drawer [(open)]&#x3D;&quot;drawerOpen&quot; header&#x3D;&quot;Filtres&quot;&gt;
+  &lt;app-form-field label&#x3D;&quot;Recherche&quot; forId&#x3D;&quot;drawer-search&quot;&gt;
+    &lt;input id&#x3D;&quot;drawer-search&quot; placeholder&#x3D;&quot;ex. crème&quot; /&gt;
+  &lt;/app-form-field&gt;
+  &lt;app-checkbox label&#x3D;&quot;Uniquement les non lues&quot; /&gt;
+  &lt;div drawer-footer&gt;
+    &lt;app-button variant&#x3D;&quot;outlined&quot; (action)&#x3D;&quot;drawerOpen.set(false)&quot;&gt;Fermer&lt;/app-button&gt;
+    &lt;app-button (action)&#x3D;&quot;drawerOpen.set(false)&quot;&gt;Appliquer&lt;/app-button&gt;
+  &lt;/div&gt;
+&lt;/app-drawer&gt;
+</code></pre></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+        <section data-compodoc="block-relationships">
+            <h3>Relationships</h3>
+
+            <div class="row pt-3">
+                <div class="col-sm-6">
+                    <h4>Used by</h4>
+                        <p class="comment"><i>No results matching.</i></p>
+                </div>
+
+                <div class="col-sm-6">
+                    <h4>Depends on</h4>
+                        <ul class="list-unstyled relationships-list">
+                                <li>
+                                            <code><a href="https://angular.dev/api/forms/FormsModule" target="_blank" >FormsModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../components/BadgeUi.html" target="_self" >BadgeUi</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../components/ButtonUi.html" target="_self" >ButtonUi</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../components/CardUi.html" target="_self" >CardUi</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../components/CheckboxUi.html" target="_self" >CheckboxUi</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../components/DialogUi.html" target="_self" >DialogUi</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../components/DrawerUi.html" target="_self" >DrawerUi</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../components/EmptyStateUi.html" target="_self" >EmptyStateUi</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../components/FormFieldUi.html" target="_self" >FormFieldUi</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../components/NotificationUi.html" target="_self" >NotificationUi</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../components/PaginatorUi.html" target="_self" >PaginatorUi</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../components/SkeletonUi.html" target="_self" >SkeletonUi</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="../components/TagUi.html" target="_self" >TagUi</a></code>
+                                </li>
+                        </ul>
+                </div>
+            </div>
+        </section>
+</div>
+
+    <div class="tab-pane fade " id="api">    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-3">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                    <td class="col-md-9">
+                        <ul class="index-list">
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#accepted" >accepted</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#dialogOpen" >dialogOpen</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#drawerOpen" >drawerOpen</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#name" >name</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#page" >page</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                    <span class="modifier">Private</span>
+                                <a href="#toast" >toast</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-3">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                    <td class="col-md-9">
+                        <ul class="index-list">
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#showToast" >showToast</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showToast"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>showToast</b></span>
+                        <a href="#showToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showToast()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="167"
+                                    class="link-to-prism">src/app/pages/examples/components-example.page.ts:167</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="accepted"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>accepted</b></span>
+                        <a href="#accepted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">src/app/pages/examples/components-example.page.ts:162</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialogOpen"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>dialogOpen</b></span>
+                        <a href="#dialogOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">src/app/pages/examples/components-example.page.ts:164</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drawerOpen"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>drawerOpen</b></span>
+                        <a href="#drawerOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/app/pages/examples/components-example.page.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="name"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>name</b></span>
+                        <a href="#name"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">src/app/pages/examples/components-example.page.ts:161</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="page"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>page</b></span>
+                        <a href="#page"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(1)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">src/app/pages/examples/components-example.page.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toast"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>toast</b></span>
+                        <a href="#toast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ToastService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">src/app/pages/examples/components-example.page.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, signal } from &#x27;@angular/core&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { BadgeUi } from &#x27;../../shared/components/badge/badge.ui&#x27;;
+import { ButtonUi } from &#x27;../../shared/components/button/button.ui&#x27;;
+import { CardUi } from &#x27;../../shared/components/card/card.ui&#x27;;
+import { CheckboxUi } from &#x27;../../shared/components/checkbox/checkbox.ui&#x27;;
+import { DialogUi } from &#x27;../../shared/components/dialog/dialog.ui&#x27;;
+import { DrawerUi } from &#x27;../../shared/components/drawer/drawer.ui&#x27;;
+import { EmptyStateUi } from &#x27;../../shared/components/empty-state/empty-state.ui&#x27;;
+import { FormFieldUi } from &#x27;../../shared/components/form-field/form-field.ui&#x27;;
+import { NotificationUi } from &#x27;../../shared/components/notification/notification.ui&#x27;;
+import { PaginatorUi } from &#x27;../../shared/components/paginator/paginator.ui&#x27;;
+import { SkeletonUi } from &#x27;../../shared/components/skeleton/skeleton.ui&#x27;;
+import { TagUi } from &#x27;../../shared/components/tag/tag.ui&#x27;;
+import { ToastService } from &#x27;../../shared/components/toast/toast.service&#x27;;
+
+/** EXEMPLE — Vitrine de tous les composants partagés. */
+@Component({
+  imports: [
+    FormsModule,
+    BadgeUi,
+    ButtonUi,
+    CardUi,
+    CheckboxUi,
+    DialogUi,
+    DrawerUi,
+    EmptyStateUi,
+    FormFieldUi,
+    NotificationUi,
+    PaginatorUi,
+    SkeletonUi,
+    TagUi,
+  ],
+  selector: &#x27;app-components-example&#x27;,
+  styles: &#x60;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--space-4);
+    }
+  &#x60;,
+  template: &#x60;
+    &lt;div class&#x3D;&quot;stack&quot;&gt;
+      &lt;h1&gt;Vitrine des composants&lt;/h1&gt;
+
+      &lt;div class&#x3D;&quot;grid&quot;&gt;
+        &lt;app-card header&#x3D;&quot;Boutons&quot; subtitle&#x3D;&quot;level · variant · size · loading&quot;&gt;
+          &lt;div class&#x3D;&quot;stack&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;app-button&gt;Primary&lt;/app-button&gt;
+              &lt;app-button level&#x3D;&quot;accent&quot;&gt;Accent&lt;/app-button&gt;
+              &lt;app-button level&#x3D;&quot;secondary&quot;&gt;Secondary&lt;/app-button&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;app-button level&#x3D;&quot;success&quot;&gt;Success&lt;/app-button&gt;
+              &lt;app-button level&#x3D;&quot;warning&quot;&gt;Warning&lt;/app-button&gt;
+              &lt;app-button level&#x3D;&quot;error&quot;&gt;Error&lt;/app-button&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;app-button variant&#x3D;&quot;outlined&quot;&gt;Outlined&lt;/app-button&gt;
+              &lt;app-button variant&#x3D;&quot;text&quot;&gt;Text&lt;/app-button&gt;
+              &lt;app-button [loading]&#x3D;&quot;true&quot;&gt;Loading&lt;/app-button&gt;
+              &lt;app-button [disabled]&#x3D;&quot;true&quot;&gt;Disabled&lt;/app-button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/app-card&gt;
+
+        &lt;app-card header&#x3D;&quot;Badges &amp; tags&quot;&gt;
+          &lt;div class&#x3D;&quot;stack&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;app-badge [value]&#x3D;&quot;3&quot; /&gt;
+              &lt;app-badge [value]&#x3D;&quot;12&quot; level&#x3D;&quot;primary&quot; /&gt;
+              &lt;app-badge value&#x3D;&quot;new&quot; level&#x3D;&quot;success&quot; /&gt;
+              &lt;app-badge [value]&#x3D;&quot;99&quot; level&#x3D;&quot;error&quot; /&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;app-tag level&#x3D;&quot;info&quot;&gt;Info&lt;/app-tag&gt;
+              &lt;app-tag level&#x3D;&quot;success&quot;&gt;Succès&lt;/app-tag&gt;
+              &lt;app-tag level&#x3D;&quot;warning&quot;&gt;Avert.&lt;/app-tag&gt;
+              &lt;app-tag level&#x3D;&quot;error&quot;&gt;Erreur&lt;/app-tag&gt;
+              &lt;app-tag [rounded]&#x3D;&quot;true&quot;&gt;Neutre&lt;/app-tag&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/app-card&gt;
+
+        &lt;app-card header&#x3D;&quot;Formulaire&quot;&gt;
+          &lt;app-form-field label&#x3D;&quot;Nom&quot; forId&#x3D;&quot;name&quot; hint&#x3D;&quot;Votre nom complet.&quot; [required]&#x3D;&quot;true&quot; [length]&#x3D;&quot;name().length&quot; [maxLength]&#x3D;&quot;40&quot;&gt;
+            &lt;input id&#x3D;&quot;name&quot; maxlength&#x3D;&quot;40&quot; [(ngModel)]&#x3D;&quot;name&quot; /&gt;
+          &lt;/app-form-field&gt;
+          &lt;app-form-field label&#x3D;&quot;E-mail&quot; forId&#x3D;&quot;mail&quot; error&#x3D;&quot;Format d&#x27;adresse e-mail invalide.&quot;&gt;
+            &lt;input id&#x3D;&quot;mail&quot; value&#x3D;&quot;marie.laurent@exemple&quot; /&gt;
+          &lt;/app-form-field&gt;
+          &lt;app-form-field label&#x3D;&quot;Pays&quot; forId&#x3D;&quot;country&quot;&gt;
+            &lt;select id&#x3D;&quot;country&quot;&gt;
+              &lt;option&gt;Belgique&lt;/option&gt;
+              &lt;option&gt;France&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/app-form-field&gt;
+          &lt;app-checkbox label&#x3D;&quot;J&#x27;accepte les conditions&quot; [(checked)]&#x3D;&quot;accepted&quot; /&gt;
+        &lt;/app-card&gt;
+
+        &lt;app-card header&#x3D;&quot;Bannières&quot;&gt;
+          &lt;div class&#x3D;&quot;stack&quot;&gt;
+            &lt;app-notification level&#x3D;&quot;info&quot; header&#x3D;&quot;Information&quot;&gt;Message neutre.&lt;/app-notification&gt;
+            &lt;app-notification level&#x3D;&quot;success&quot; header&#x3D;&quot;Produit enregistré&quot; /&gt;
+            &lt;app-notification level&#x3D;&quot;warning&quot; header&#x3D;&quot;Miniature inaccessible&quot; /&gt;
+            &lt;app-notification level&#x3D;&quot;error&quot; header&#x3D;&quot;Erreur&quot; [closable]&#x3D;&quot;true&quot;&gt;Fermable.&lt;/app-notification&gt;
+          &lt;/div&gt;
+        &lt;/app-card&gt;
+
+        &lt;app-card header&#x3D;&quot;Superpositions&quot; subtitle&#x3D;&quot;dialog · drawer · toast&quot;&gt;
+          &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;app-button (action)&#x3D;&quot;dialogOpen.set(true)&quot;&gt;Ouvrir le dialog&lt;/app-button&gt;
+            &lt;app-button level&#x3D;&quot;accent&quot; (action)&#x3D;&quot;drawerOpen.set(true)&quot;&gt;Ouvrir le drawer&lt;/app-button&gt;
+            &lt;app-button variant&#x3D;&quot;outlined&quot; (action)&#x3D;&quot;showToast()&quot;&gt;Afficher un toast&lt;/app-button&gt;
+          &lt;/div&gt;
+        &lt;/app-card&gt;
+
+        &lt;app-card header&#x3D;&quot;Chargement &amp; pagination&quot;&gt;
+          &lt;div class&#x3D;&quot;stack&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;app-skeleton width&#x3D;&quot;40px&quot; height&#x3D;&quot;40px&quot; shape&#x3D;&quot;circle&quot; /&gt;
+              &lt;div class&#x3D;&quot;stack&quot; style&#x3D;&quot;flex: 1; gap: 6px&quot;&gt;
+                &lt;app-skeleton width&#x3D;&quot;70%&quot; /&gt;
+                &lt;app-skeleton width&#x3D;&quot;40%&quot; /&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;app-paginator [(page)]&#x3D;&quot;page&quot; [total]&#x3D;&quot;128&quot; [pageSize]&#x3D;&quot;20&quot; /&gt;
+          &lt;/div&gt;
+        &lt;/app-card&gt;
+      &lt;/div&gt;
+
+      &lt;app-empty-state icon&#x3D;&quot;📭&quot; header&#x3D;&quot;État vide&quot; message&#x3D;&quot;Aucune donnée à afficher pour le moment.&quot;&gt;
+        &lt;app-button variant&#x3D;&quot;outlined&quot;&gt;Action&lt;/app-button&gt;
+      &lt;/app-empty-state&gt;
+    &lt;/div&gt;
+
+    &lt;app-dialog [(open)]&#x3D;&quot;dialogOpen&quot; header&#x3D;&quot;Confirmer l&#x27;action&quot;&gt;
+      &lt;p&gt;Voulez-vous vraiment continuer ?&lt;/p&gt;
+      &lt;div dialog-actions&gt;
+        &lt;app-button variant&#x3D;&quot;outlined&quot; (action)&#x3D;&quot;dialogOpen.set(false)&quot;&gt;Annuler&lt;/app-button&gt;
+        &lt;app-button (action)&#x3D;&quot;dialogOpen.set(false)&quot;&gt;Confirmer&lt;/app-button&gt;
+      &lt;/div&gt;
+    &lt;/app-dialog&gt;
+
+    &lt;app-drawer [(open)]&#x3D;&quot;drawerOpen&quot; header&#x3D;&quot;Filtres&quot;&gt;
+      &lt;app-form-field label&#x3D;&quot;Recherche&quot; forId&#x3D;&quot;drawer-search&quot;&gt;
+        &lt;input id&#x3D;&quot;drawer-search&quot; placeholder&#x3D;&quot;ex. crème&quot; /&gt;
+      &lt;/app-form-field&gt;
+      &lt;app-checkbox label&#x3D;&quot;Uniquement les non lues&quot; /&gt;
+      &lt;div drawer-footer&gt;
+        &lt;app-button variant&#x3D;&quot;outlined&quot; (action)&#x3D;&quot;drawerOpen.set(false)&quot;&gt;Fermer&lt;/app-button&gt;
+        &lt;app-button (action)&#x3D;&quot;drawerOpen.set(false)&quot;&gt;Appliquer&lt;/app-button&gt;
+      &lt;/div&gt;
+    &lt;/app-drawer&gt;
+  &#x60;,
+})
+export class ComponentsExamplePage {
+  private toast &#x3D; inject(ToastService);
+
+  protected name &#x3D; signal(&#x27;&#x27;);
+  protected accepted &#x3D; signal(false);
+  protected page &#x3D; signal(1);
+  protected dialogOpen &#x3D; signal(false);
+  protected drawerOpen &#x3D; signal(false);
+
+  protected showToast() {
+    this.toast.show(&#x27;Action effectuée avec succès&#x27;, { level: &#x27;success&#x27; });
+  }
+}
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="styleData">
+            <pre class="line-numbers"><code class="language-scss">
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--space-4);
+    }
+  
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="stack">  <h1>Vitrine des composants</h1>  <div class="grid">    <app-card header="Boutons" subtitle="level · variant · size · loading">      <div class="stack">        <div class="row">          <app-button>Primary</app-button>          <app-button level="accent">Accent</app-button>          <app-button level="secondary">Secondary</app-button>        </div>        <div class="row">          <app-button level="success">Success</app-button>          <app-button level="warning">Warning</app-button>          <app-button level="error">Error</app-button>        </div>        <div class="row">          <app-button variant="outlined">Outlined</app-button>          <app-button variant="text">Text</app-button>          <app-button [loading]="true">Loading</app-button>          <app-button [disabled]="true">Disabled</app-button>        </div>      </div>    </app-card>    <app-card header="Badges & tags">      <div class="stack">        <div class="row">          <app-badge [value]="3" />          <app-badge [value]="12" level="primary" />          <app-badge value="new" level="success" />          <app-badge [value]="99" level="error" />        </div>        <div class="row">          <app-tag level="info">Info</app-tag>          <app-tag level="success">Succès</app-tag>          <app-tag level="warning">Avert.</app-tag>          <app-tag level="error">Erreur</app-tag>          <app-tag [rounded]="true">Neutre</app-tag>        </div>      </div>    </app-card>    <app-card header="Formulaire">      <app-form-field label="Nom" forId="name" hint="Votre nom complet." [required]="true" [length]="name().length" [maxLength]="40">        <input id="name" maxlength="40" [(ngModel)]="name" />      </app-form-field>      <app-form-field label="E-mail" forId="mail" error="Format d\'adresse e-mail invalide.">        <input id="mail" value="marie.laurent@exemple" />      </app-form-field>      <app-form-field label="Pays" forId="country">        <select id="country">          <option>Belgique</option>          <option>France</option>        </select>      </app-form-field>      <app-checkbox label="J\'accepte les conditions" [(checked)]="accepted" />    </app-card>    <app-card header="Bannières">      <div class="stack">        <app-notification level="info" header="Information">Message neutre.</app-notification>        <app-notification level="success" header="Produit enregistré" />        <app-notification level="warning" header="Miniature inaccessible" />        <app-notification level="error" header="Erreur" [closable]="true">Fermable.</app-notification>      </div>    </app-card>    <app-card header="Superpositions" subtitle="dialog · drawer · toast">      <div class="row">        <app-button (action)="dialogOpen.set(true)">Ouvrir le dialog</app-button>        <app-button level="accent" (action)="drawerOpen.set(true)">Ouvrir le drawer</app-button>        <app-button variant="outlined" (action)="showToast()">Afficher un toast</app-button>      </div>    </app-card>    <app-card header="Chargement & pagination">      <div class="stack">        <div class="row">          <app-skeleton width="40px" height="40px" shape="circle" />          <div class="stack" style="flex: 1; gap: 6px">            <app-skeleton width="70%" />            <app-skeleton width="40%" />          </div>        </div>        <app-paginator [(page)]="page" [total]="128" [pageSize]="20" />      </div>    </app-card>  </div>  <app-empty-state icon="📭" header="État vide" message="Aucune donnée à afficher pour le moment.">    <app-button variant="outlined">Action</app-button>  </app-empty-state></div><app-dialog [(open)]="dialogOpen" header="Confirmer l\'action">  <p>Voulez-vous vraiment continuer ?</p>  <div dialog-actions>    <app-button variant="outlined" (action)="dialogOpen.set(false)">Annuler</app-button>    <app-button (action)="dialogOpen.set(false)">Confirmer</app-button>  </div></app-dialog><app-drawer [(open)]="drawerOpen" header="Filtres">  <app-form-field label="Recherche" forId="drawer-search">    <input id="drawer-search" placeholder="ex. crème" />  </app-form-field>  <app-checkbox label="Uniquement les non lues" />  <div drawer-footer>    <app-button variant="outlined" (action)="drawerOpen.set(false)">Fermer</app-button>    <app-button (action)="drawerOpen.set(false)">Appliquer</app-button>  </div></app-drawer></div>'
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'ApplicationPage', 'selector': 'app-application'},{'name': 'BadgeUi', 'selector': 'app-badge'},{'name': 'BreadcrumbUi', 'selector': 'app-breadcrumb'},{'name': 'ButtonUi', 'selector': 'app-button'},{'name': 'CardUi', 'selector': 'app-card'},{'name': 'CheckboxUi', 'selector': 'app-checkbox'},{'name': 'ComponentsExamplePage', 'selector': 'app-components-example'},{'name': 'DialogUi', 'selector': 'app-dialog'},{'name': 'DrawerUi', 'selector': 'app-drawer'},{'name': 'EmptyStateUi', 'selector': 'app-empty-state'},{'name': 'FormFieldUi', 'selector': 'app-form-field'},{'name': 'HeaderUi', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LayoutPage', 'selector': 'app-layout'},{'name': 'LoginExamplePage', 'selector': 'app-login-example'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'MainLayoutUi', 'selector': 'app-main-layout'},{'name': 'MenuItemUi', 'selector': 'app-menu-item'},{'name': 'MenuUi', 'selector': 'app-menu'},{'name': 'NotFoundPage', 'selector': 'app-not-found'},{'name': 'NotificationsExamplePage', 'selector': 'app-notifications-example'},{'name': 'NotificationUi', 'selector': 'app-notification'},{'name': 'PaginatorUi', 'selector': 'app-paginator'},{'name': 'PlayerUi', 'selector': 'app-player'},{'name': 'ProductDetailExamplePage', 'selector': 'app-product-detail-example'},{'name': 'ProductEditExamplePage', 'selector': 'app-product-edit-example'},{'name': 'ProductsExamplePage', 'selector': 'app-products-example'},{'name': 'SkeletonUi', 'selector': 'app-skeleton'},{'name': 'TableUi', 'selector': 'app-table'},{'name': 'TagUi', 'selector': 'app-tag'},{'name': 'ToastUi', 'selector': 'app-toast'}];
+    var DIRECTIVES = [{'name': 'Autofocus', 'selector': '[appAutofocus]'},{'name': 'Autoplay', 'selector': '[appAutoplay]'}];
+    var ACTUAL_COMPONENT = {'name': 'ComponentsExamplePage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ComponentsExamplePage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var updateDarkModeSwitchOffset = function () {
+                    var content = document.querySelector('.content');
+                    var scrollbarWidth = 0;
+
+                    if (content) {
+                         scrollbarWidth = Math.max(0, content.offsetWidth - content.clientWidth);
+                    }
+
+                    document.documentElement.style.setProperty(
+                         '--content-scrollbar-width',
+                         scrollbarWidth + 'px'
+                    );
+               };
+
+               updateDarkModeSwitchOffset();
+               requestAnimationFrame(updateDarkModeSwitchOffset);
+               window.addEventListener('resize', updateDarkModeSwitchOffset);
+
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

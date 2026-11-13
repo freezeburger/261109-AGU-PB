@@ -12,7 +12,7 @@ import { NotificationUi } from '../../shared/components/notification/notificatio
 import { PaginatorUi } from '../../shared/components/paginator/paginator.ui';
 import { SkeletonUi } from '../../shared/components/skeleton/skeleton.ui';
 import { TagUi } from '../../shared/components/tag/tag.ui';
-import { ToastService } from '../../shared/components/toast/toast.service';
+import { ToastService } from '../../core/services/toast.service';
 
 /** EXEMPLE — Vitrine de tous les composants partagés. */
 @Component({

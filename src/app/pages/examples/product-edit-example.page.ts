@@ -8,7 +8,7 @@ import { DialogUi } from '../../shared/components/dialog/dialog.ui';
 import { FormFieldUi } from '../../shared/components/form-field/form-field.ui';
 import { NotificationUi } from '../../shared/components/notification/notification.ui';
 import { TagUi } from '../../shared/components/tag/tag.ui';
-import { ToastService } from '../../shared/components/toast/toast.service';
+import { ToastService } from '../../core/services/toast.service';
 import { PRODUCTS, Product } from './example.data';
 
 /** EXEMPLE — Maquette 04 « Modification produit ». */

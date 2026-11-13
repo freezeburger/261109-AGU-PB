@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Toast, ToastService } from './toast.service';
+import { Toast, ToastService } from '../../../core/services/toast.service';
 
 const ICONS = { info: 'ℹ', success: '✓', warning: '⚠', error: '✕' };
 

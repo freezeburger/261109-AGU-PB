@@ -6,7 +6,7 @@ import { ButtonUi } from '../../shared/components/button/button.ui';
 import { EmptyStateUi } from '../../shared/components/empty-state/empty-state.ui';
 import { FormFieldUi } from '../../shared/components/form-field/form-field.ui';
 import { TagUi } from '../../shared/components/tag/tag.ui';
-import { ToastService } from '../../shared/components/toast/toast.service';
+import { ToastService } from '../../core/services/toast.service';
 import { AppNotification, NOTIFICATIONS, NotificationLevel } from './example.data';
 
 type StatusFilter = 'all' | 'unread' | 'read';

@@ -4,7 +4,7 @@ import { BreadcrumbUi } from '../../shared/components/breadcrumb/breadcrumb.ui';
 import { ButtonUi } from '../../shared/components/button/button.ui';
 import { CardUi } from '../../shared/components/card/card.ui';
 import { EmptyStateUi } from '../../shared/components/empty-state/empty-state.ui';
-import { ToastService } from '../../shared/components/toast/toast.service';
+import { ToastService } from '../../core/services/toast.service';
 import { PRODUCTS, formatPrice } from './example.data';
 
 /** EXEMPLE — Maquette 03 « Détail produit ». */
