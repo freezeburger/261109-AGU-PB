@@ -154,5 +154,42 @@
       "createdAt": "2026-11-09T14:00:00.000Z",
       "readAt": "2026-11-10T08:00:00.000Z"
     }
+  ],
+    "products": [
+    {
+      "id": 1,
+      "title": "Apple AirPods Max Silver",
+      "description": "Casque audio circum-auriculaire sans fil.",
+      "price": 549.99,
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/thumbnail.webp"
+    },
+    {
+      "id": 2,
+      "title": "Apple AirPods",
+      "description": "Écouteurs sans fil avec boîtier de recharge.",
+      "price": 129.99,
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/thumbnail.webp"
+    },
+    {
+      "id": 3,
+      "title": "Beats Flex Wireless Earphones",
+      "description": "Écouteurs sans fil avec tour de cou.",
+      "price": 69.99,
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/beats-flex-wireless-earphones/thumbnail.webp"
+    },
+    {
+      "id": 4,
+      "title": "Amazon Echo Plus",
+      "description": "Enceinte connectée pour écouter de la musique.",
+      "price": 149.99,
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/thumbnail.webp"
+    },
+    {
+      "id": 5,
+      "title": "Apple HomePod Mini Cosmic Grey",
+      "description": "Enceinte connectée compacte.",
+      "price": 99.99,
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-homepod-mini-cosmic-grey/thumbnail.webp"
+    }
   ]
 }
