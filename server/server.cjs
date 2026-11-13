@@ -5,7 +5,7 @@
  *   npm run api:reset    # restaure les données de référence puis démarre
  *
  * - `db.seed.json` (versionné) est copié vers `db.json` (ignoré par Git) au premier démarrage.
- * - Authentification par jeton opaque : POST /auth/login, GET /auth/verify, GET /auth/me, POST /auth/logout.
+ * - Authentification par jeton opaque : POST /auth/login, POST /auth/verify, GET /auth/me, POST /auth/logout.
  * - Toute autre route exige `Authorization: Bearer <jeton>` ; `/users` et `/db` ne sont pas exposés.
  * - Les notifications sont cloisonnées par utilisateur (`userId` imposé par le serveur).
  * - CORS limité aux origines de `CORS_ORIGINS` (par défaut : http://localhost:4200, http://127.0.0.1:4200).
@@ -98,8 +98,18 @@ server.post('/auth/login', (req, res) => {
   return res.json({ token, expiresAt: new Date(expiresAt).toISOString(), user: publicUser(user) });
 });
 
-// --- Contrôle d'accès : tout le reste exige un jeton valide -------------------------------------
+server.post('/auth/verify', (req, res) => {
+  const token = typeof req.body?.token === 'string' ? req.body.token : null;
+  const session = activeSession(token);
+  if (!session) {
+    return res.status(401).json({ valid: false, message: 'Jeton invalide ou expiré.' });
+  }
 
+  const user = db.get('users').find({ id: session.userId }).value();
+  return user ? res.json({ valid: true, user }) : res.sendStatus(401);
+});
+
+// --- Contrôle d'accès : tout le reste exige un jeton valide -------------------------------------
 server.use((req, res, next) => {
   const token = bearerToken(req);
   const session = activeSession(token);
@@ -114,11 +124,6 @@ server.use((req, res, next) => {
 server.get('/auth/me', (req, res) => {
   const user = db.get('users').find({ id: req.userId }).value();
   return user ? res.json(publicUser(user)) : res.sendStatus(401);
-});
-
-server.get('/auth/verify', (req, res) => {
-  const user = db.get('users').find({ id: req.userId }).value();
-  return user ? res.json({ valid: true, name: user }) : res.sendStatus(401);
 });
 
 server.post('/auth/logout', (req, res) => {
